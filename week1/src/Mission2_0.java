@@ -3,16 +3,30 @@ import java.util.Scanner;
 
 public class Mission2_0 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Random r = new Random();
-        int a[] = new int[10];
-
-        System.out.println(a);
-
+        Scanner s = new Scanner(System.in);
         String[] members = {"Tany", "Ella", "BC", "Barney", "Konda", "Jhin", "OS", "Sonny", "meatsby", "Bart", "Hanse"};
-
+        int a[] = new int[members.length];
         System.out.println("몇 명인가요?");
-        int n = sc.nextInt();
+        int n = s.nextInt();
+        boolean isFirst = true;
+        Random r = new Random();
 
+        for (int i=0; i<members.length; i++) {
+            a[i] = r.nextInt(members.length)+1;
+            for (int j=0; j<i; j++) {
+                if (a[i] == a[j]) {
+                    i--;
+                }
+            }
+        }
+
+        for (int b=0; b<n; b++) {
+            if (isFirst) {
+                System.out.print(members[a[b]]);
+                isFirst = false;
+            } else {
+                System.out.print(", " + members[a[b]]);
+            }
+        }
     }
 }
