@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.*;
 
 //코코아 학생 아무나 뽑기
@@ -37,12 +38,11 @@ public class Main {
 
     private static List<String> createList() {
         List cocoaList = new ArrayList<>();
-        cocoaList.add("얀");
-        cocoaList.add("땃쥐");
-        cocoaList.add("준");
-        cocoaList.add("필");
-        cocoaList.add("호눅스");
-        cocoaList.add("몽");
         return cocoaList;
+    }
+
+    public static boolean fileTest() {
+        File f = new File("./user.csv");
+        return f.exists();
     }
 }
