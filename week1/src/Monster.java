@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Monster {
     private Position position;
     private String name;
