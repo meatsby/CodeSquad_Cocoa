@@ -6,7 +6,7 @@ public class Mission2_0 {
         Scanner s = new Scanner(System.in);
         String[] members = {"Tany", "Ella", "BC", "Barney", "Konda", "Jhin", "OS", "Sonny", "meatsby", "Bart", "Hanse"};
         int a[] = new int[members.length];
-        System.out.println("몇 명인가요?");
+        System.out.print("몇 명인가요? ");
         int n = s.nextInt();
         boolean isFirst = true;
         Random r = new Random();
