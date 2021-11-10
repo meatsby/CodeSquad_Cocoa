@@ -1,3 +1,5 @@
+package Mission_2_2;
+
 public class Position {
     private int x;
     private int y;
@@ -17,7 +19,7 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position{" +
+        return "Mission_2_2.Position{" +
                 "x=" + x +
                 ", y=" + y +
                 '}';

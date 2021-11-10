@@ -1,7 +1,9 @@
+package Mission_2_0;
+
 import java.util.Random;
 import java.util.Scanner;
 
-public class Mission2_0 {
+public class Mission_2_0 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         String[] members = {"Tany", "Ella", "BC", "Barney", "Konda", "Jhin", "OS", "Sonny", "meatsby", "Bart", "Hanse"};

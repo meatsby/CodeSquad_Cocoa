@@ -1,5 +1,8 @@
+package Mission_2_2;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Game {
 
@@ -39,9 +42,10 @@ public class Game {
         return new Position(1, 1);
     }
 
-    //TODO: 키보드 입력 받기
     private String getNameFromUser() {
-        return "meatsby";
+        Scanner s = new Scanner(System.in);
+        String userName = s.nextLine();
+        return userName;
     }
 
     private void createMap(int w, int h) {
@@ -49,7 +53,7 @@ public class Game {
     }
 
     public void start() {
-        System.out.println("Game Start");
+        System.out.println("Mission_2_2.Game Start");
     }
 
     public void showResult() {

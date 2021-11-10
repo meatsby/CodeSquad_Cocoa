@@ -1,9 +1,11 @@
+package Mission_2_0;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
 //코코아 학생 아무나 뽑기
-public class Main {
+public class RandomStudent {
 
     public static void main(String[] args) throws FileNotFoundException {
         //학생 리스트(배열)를 만들고

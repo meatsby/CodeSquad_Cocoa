@@ -1,3 +1,5 @@
+package Mission_2_2;
+
 public class Player {
     private String name;
     private Position position;
@@ -15,7 +17,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
+        return "Mission_2_2.Player{" +
                 "name='" + name + '\'' +
                 ", position=" + position +
                 ", score=" + score +
