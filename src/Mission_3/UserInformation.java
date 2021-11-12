@@ -31,7 +31,7 @@ public class UserInformation {
         }
     }
 
-    public static void userLogin(HashMap<String, String> userInfo, Scanner s) {
+    public static String userLogin(HashMap<String, String> userInfo, Scanner s) {
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(USER_INFO));
@@ -50,19 +50,20 @@ public class UserInformation {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-        System.out.print("사용자 이름을 입력해주세요. : ");
-        String id = s.next();
-        if (userInfo.containsKey(id)) {
-            System.out.print("비밀번호를 입력해주세요. : ");
-            String pw = s.next();
-            if (userInfo.get(id).equals(pw)) {
-                System.out.println(id + "님 환영합니다.");
+        while (true) {
+            System.out.print("사용자 이름을 입력해주세요. : ");
+            String id = s.nextLine();
+            if (userInfo.containsKey(id)) {
+                System.out.print("비밀번호를 입력해주세요. : ");
+                String pw = s.nextLine();
+                if (userInfo.get(id).equals(pw)) {
+                    return id;
+                } else {
+                    System.out.println("비밀번호가 일치하지 않습니다.");
+                }
             } else {
-                System.out.println("비밀번호가 일치하지 않습니다.");
+                System.out.println("등록된 사용자가 존재하지 않습니다.");
             }
-        } else {
-            System.out.println("등록된 사용자가 존재하지 않습니다.");
         }
     }
 }
