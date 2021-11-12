@@ -6,9 +6,7 @@ import java.util.Scanner;
 
 public class UserInformation {
 
-    private static final String USER_INFO = "userInfo.txt";
-
-    public static void userRegistration(HashMap<String, String> userInfo, Scanner s) {
+    public static void userRegistration(String Dir, HashMap<String, String> userInfo, Scanner s) {
         System.out.print("사용자 이름을 입력해주세요. : ");
         String newId = s.next();
 
@@ -19,7 +17,7 @@ public class UserInformation {
             String newPw = s.next();
             userInfo.put(newId, newPw);
 
-            File f = new File(USER_INFO);
+            File f = new File(Dir + "userinfo.txt");
             try {
                 FileWriter fw = new FileWriter(f, true);
                 fw.write(newId + "," + newPw + "\n");
@@ -31,10 +29,10 @@ public class UserInformation {
         }
     }
 
-    public static String userLogin(HashMap<String, String> userInfo, Scanner s) {
+    public static String userLogin(String Dir, HashMap<String, String> userInfo, Scanner s) {
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader(USER_INFO));
+            BufferedReader br = new BufferedReader(new FileReader(Dir + "userinfo.txt"));
             while (true) {
                 String line = null;
                 try {
@@ -50,6 +48,7 @@ public class UserInformation {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
         while (true) {
             System.out.print("사용자 이름을 입력해주세요. : ");
             String id = s.nextLine();
@@ -57,6 +56,7 @@ public class UserInformation {
                 System.out.print("비밀번호를 입력해주세요. : ");
                 String pw = s.nextLine();
                 if (userInfo.get(id).equals(pw)) {
+                    System.out.println(id + "님 환영합니다.");
                     return id;
                 } else {
                     System.out.println("비밀번호가 일치하지 않습니다.");
