@@ -35,8 +35,45 @@ public class AccountData {
     public static void dataLookup(String Dir, String userId, Scanner s) {
         ArrayList<String> dataSet = FileIO.openDataSet(Dir, userId);
 
+        System.out.println("순번    날짜       적요     수입     지출  유형");
+        System.out.println("===========================================");
         for (int i=0; i < dataSet.size(); i++) {
-            System.out.println(i + " " + dataSet.get(i));
+            String[] data = dataSet.get(i).split(" ");
+            System.out.printf("%3s %10s %6s %7s %7s %2s\n", i, data[0], data[1], data[2], data[3], data[4]);
+        }
+    }
+
+    public static void dataSearch(String Dir, String userId, Scanner s) {
+        ArrayList<String> dataSet = FileIO.openDataSet(Dir, userId);
+        ArrayList<String> temp = new ArrayList<>();
+        System.out.println("검색할 항목을 입력해주세요.");
+        String search = s.nextLine();
+
+        for (String data : dataSet) {
+            if (data.contains(search)) {
+                temp.add(data);
+            }
+        }
+
+        for (String data : temp) {
+            System.out.println(data);
+        }
+    }
+
+    public static void monthlyLookup(String Dir, String userId, Scanner s) {
+        ArrayList<String> dataSet = FileIO.openDataSet(Dir, userId);
+        ArrayList<String> temp = new ArrayList<>();
+        System.out.println("검색할 월을 입력해주세요.");
+        String month = s.nextLine();
+
+        for (String data : dataSet) {
+            if (Integer.parseInt(data.split(" ")[0].split("-")[1]) == Integer.parseInt(month)) {
+                temp.add(data);
+            }
+        }
+
+        for (String data : temp) {
+            System.out.println(data);
         }
     }
 }

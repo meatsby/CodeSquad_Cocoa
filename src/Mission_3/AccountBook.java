@@ -38,7 +38,9 @@ public class AccountBook {
             System.out.println("2. 데이터 삭제");
             System.out.println("3. 데이터 수정");
             System.out.println("4. 데이터 조회");
-            System.out.println("5. 종료");
+            System.out.println("5. 데이터 검색");
+            System.out.println("6. 월별 출력");
+            System.out.println("7. 종료");
             String cmd = s.nextLine();
 
             switch (cmd) {
@@ -53,6 +55,12 @@ public class AccountBook {
                     AccountData.dataLookup(Dir, userId, s);
                     break;
                 case "5":
+                    AccountData.dataSearch(Dir, userId, s);
+                    break;
+                case "6":
+                    AccountData.monthlyLookup(Dir, userId, s);
+                    break;
+                case "7":
                     break label;
             }
         }
@@ -60,7 +68,6 @@ public class AccountBook {
 
     public static void main(String[] args) {
         AccountBook a = new AccountBook();
-        // 사용자 등록
         a.promptRegistration();
     }
 }
