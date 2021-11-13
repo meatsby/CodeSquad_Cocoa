@@ -55,8 +55,11 @@ public class AccountData {
             }
         }
 
-        for (String data : temp) {
-            System.out.println(data);
+        System.out.println("   날짜       적요     수입     지출  유형");
+        System.out.println("=======================================");
+        for (int i=0; i < temp.size(); i++) {
+            String[] data = temp.get(i).split(" ");
+            System.out.printf("%10s %6s %7s %7s %2s\n", data[0], data[1], data[2], data[3], data[4]);
         }
     }
 
@@ -72,8 +75,11 @@ public class AccountData {
             }
         }
 
-        for (String data : temp) {
-            System.out.println(data);
+        System.out.println("   날짜       적요     수입     지출  유형");
+        System.out.println("=======================================");
+        for (int i=0; i < temp.size(); i++) {
+            String[] data = temp.get(i).split(" ");
+            System.out.printf("%10s %6s %7s %7s %2s\n", data[0], data[1], data[2], data[3], data[4]);
         }
     }
 }
