@@ -1,9 +1,12 @@
 package Mission_5;
 
 import java.time.LocalTime;
-import java.util.Arrays;
 
 public class Main {
+
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_RESET = "\u001B[0m";
+
     public static void main(String[] args) {
         String[][] KoreanClock = {
                 {"한", "두", "세", "네", "다", "섯"},
@@ -137,8 +140,8 @@ public class Main {
 
         for (int i=0; i < 6; i++) {
             for (int j=0; j < 6; j++) {
-                if (!ClockLogic[i][j]) {
-                    KoreanClock[i][j] = "ㅇ";
+                if (ClockLogic[i][j]) {
+                    KoreanClock[i][j] = ANSI_CYAN + KoreanClock[i][j] + ANSI_RESET;
                 }
             }
         }

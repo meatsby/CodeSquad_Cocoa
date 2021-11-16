@@ -1,2 +1,4 @@
 # Project exclude paths
-/out/
+/out/out\
+.idea\
+CodeSquad_Cocoa.iml
