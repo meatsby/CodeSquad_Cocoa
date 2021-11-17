@@ -2,30 +2,27 @@ package Mission_5;
 
 import java.time.LocalTime;
 
-public class Main {
+public class KoreanClock {
 
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_RESET = "\u001B[0m";
+    public String[][] KoreanClock = {
+            {"한", "두", "세", "네", "다", "섯"},
+            {"여", "섯", "일", "곱", "여", "덟"},
+            {"아", "홉", "열", "한", "두", "시"},
+            {"자", "이", "삼", "사", "오", "십"},
+            {"정", "일", "이", "삼", "사", "오"},
+            {"오", "오", "칠", "팔", "구", "분"}
+    };
 
-    public static void main(String[] args) {
-        String[][] KoreanClock = {
-                {"한", "두", "세", "네", "다", "섯"},
-                {"여", "섯", "일", "곱", "여", "덟"},
-                {"아", "홉", "열", "한", "두", "시"},
-                {"자", "이", "삼", "사", "오", "십"},
-                {"정", "일", "이", "삼", "사", "오"},
-                {"오", "오", "칠", "팔", "구", "분"}
-        };
+    public Boolean[][] ClockLogic = {
+            {false, false, false, false, false, false},
+            {false, false, false, false, false, false},
+            {false, false, false, false, false, true},
+            {false, false, false, false, false, false},
+            {false, false, false, false, false, false},
+            {false, false, false, false, false, true},
+    };
 
-        Boolean[][] ClockLogic = {
-                {false, false, false, false, false, false},
-                {false, false, false, false, false, false},
-                {false, false, false, false, false, true},
-                {false, false, false, false, false, false},
-                {false, false, false, false, false, false},
-                {false, false, false, false, false, true},
-        };
-
+    public void logic() {
         LocalTime now = LocalTime.now();
         int hour = now.getHour();
         if (hour > 12) {
@@ -33,7 +30,7 @@ public class Main {
         }
         int minute = now.getMinute();
 
-        switch (hour) {
+        switch (hour%12) {
             case 0:
                 if (minute == 0) {
                     ClockLogic[3][0] = true;
@@ -137,11 +134,15 @@ public class Main {
                 ClockLogic[4][1] = true;
                 break;
         }
+    }
+
+    public void printClock(String ANSI, String ANSI_RESET, int hour, int minute) {
+        logic();
 
         for (int i=0; i < 6; i++) {
             for (int j=0; j < 6; j++) {
                 if (ClockLogic[i][j]) {
-                    KoreanClock[i][j] = ANSI_CYAN + KoreanClock[i][j] + ANSI_RESET;
+                    KoreanClock[i][j] = ANSI + KoreanClock[i][j] + ANSI_RESET;
                 }
             }
         }
