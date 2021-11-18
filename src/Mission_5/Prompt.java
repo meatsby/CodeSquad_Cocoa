@@ -28,6 +28,10 @@ public class Prompt {
             kc.printClock(ANSI, ANSI_RESET, hour, minute);
         } else if (cmd.equals("cal")) {
             cal.printCalendar(ANSI, ANSI_RESET, year, month, day);
+        } else {
+            int year = Integer.parseInt(cmd.split(" ")[1]);
+            int month = Integer.parseInt(cmd.split(" ")[2]);
+            cal.printCalendar(ANSI, ANSI_RESET, year, month, 0);
         }
     }
 
