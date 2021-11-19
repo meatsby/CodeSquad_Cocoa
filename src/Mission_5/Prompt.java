@@ -21,17 +21,21 @@ public class Prompt {
     public int minute = now.getMinute();
 
     private void runPrompt() {
-        System.out.print("> ");
-        String cmd = s.nextLine();
+        while (true) {
+            System.out.print("> ");
+            String cmd = s.nextLine();
 
-        if (cmd.equals("clock")) {
-            kc.printClock(ANSI, ANSI_RESET, hour, minute);
-        } else if (cmd.equals("cal")) {
-            cal.printCalendar(ANSI, ANSI_RESET, year, month, day);
-        } else {
-            int year = Integer.parseInt(cmd.split(" ")[1]);
-            int month = Integer.parseInt(cmd.split(" ")[2]);
-            cal.printCalendar(ANSI, ANSI_RESET, year, month, 0);
+            if (cmd.equals("clock")) {
+                kc.printClock(ANSI, ANSI_RESET, hour, minute);
+            } else if (cmd.equals("cal")) {
+                cal.printCalendar(ANSI, ANSI_RESET, year, month, day);
+            } else if (cmd.equals("q")) {
+                return;
+            } else {
+                int year = Integer.parseInt(cmd.split(" ")[1]);
+                int month = Integer.parseInt(cmd.split(" ")[2]);
+                cal.printCalendar(ANSI, ANSI_RESET, year, month, 0);
+            }
         }
     }
 
